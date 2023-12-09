@@ -89,3 +89,58 @@ const one1 = superPrint7([1, 2, 3, 4], "x")  // TS는 두번째 매개변수가 
 // any와는 다름 이건 우리가 하는 요청에 따라 call signature를 생성한다는 뜻
 
 const two2 = superPrint7([1, 2, true, false, "hello"], [])
+
+type Player5<E> = {
+    name: string,
+    extraInfo: E
+}
+
+type SangminExtra = {
+    favFood: string
+}
+
+type SangminPlayer =Player5<SangminExtra>
+
+const sangminCharactor : SangminPlayer = {
+    name: "sangmin",
+    extraInfo: {
+        favFood: "Gimchi"
+    }
+}
+
+type LyneeExtra2 = {
+    favFood: string
+}
+
+type LynneExtra = Player5<LyneeExtra2>
+
+const Lynne: LynneExtra = {
+    name: "lynn",
+    extraInfo: {
+        favFood: "omelet"
+    }
+}
+
+// 위 코드를 잘 읽어보고 어떻게 generic을 이용하고 코드를 재사용하고 있는지 생각해보기
+
+const Lynne2: Player5<null> = {
+    name: "lynn",
+    extraInfo: null
+}
+
+// 위 코드는 extraInfo가 없다고 가정하고 작성한 코드, Type에 generic을 지정했다면 변수 선언시 반드시 명시해주어야 한다
+
+type A = Array<number>
+
+let z: A = [1,2,3,4]
+
+// 왜 generic에 number를 입력해야 에러가 안나는지 모르겠음
+
+
+function printAllNumbers(arr: Array<number>){
+     
+}
+
+// 어쩄든 많은 라이브러리에서 any로는 보호받지 못하는 입력값을 보호하기 위해 generic을 많이 사용하고 보게 될거임
+
+
