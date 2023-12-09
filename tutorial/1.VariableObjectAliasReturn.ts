@@ -6,7 +6,7 @@ type Player = {
 }
 
 const wonjun : Player = {
-    name: "fuck",
+    name: "wonjun",
     age: 12
 }
 
