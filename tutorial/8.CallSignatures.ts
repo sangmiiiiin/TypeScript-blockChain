@@ -16,7 +16,10 @@ const plus2 = (a: number, b:number) => a + b
 
 type ADD = (a: number, b: number) => number;
 // 함수의 call signature 타입을 만드는 방법임
-
+// 위와 같이 미리 타입을 지정해놓고 함수를 정의 할때 함수명 옆에 타입명을 콜론과 함께 적어준다
+// 아래는 함수 선언시 타입 지정 예시이다    
 
 const plus3: ADD = (a, b) => a + b
+// 이와같이 타입을 사용자 정이로 만들 수 있고, 함수가 어떻게 작동하는지 서술해둘 수 있음
+// React로 코딩 하고 있다면 TS에게 함수가 어떻게 작동하는지 설명해 줘야함
 
