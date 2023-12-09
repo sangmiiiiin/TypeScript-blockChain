@@ -37,7 +37,7 @@ class Players extends User {
 
 const me = new Players ("sang", "min", "sangmirrring")
 
-// 추상 클래스는 오직 다른곳에서 상속받을수만 있는 클래스
+// 추상 클래스는 오직 다른곳에서 상속 받을수만 있는 클래스
 
 
 me.firstName
@@ -87,6 +87,7 @@ class Player4 extends User3{
 }
 
 // 추상 메소드는 추상 클래스를 상속받는 모든 것들이 구현을 해야하는 메소드를 의미한다
+// 추상 메소드가 있는 경우, 추상 클래스를 상속받는 클래스에서 추상 메소드를 구현 해주어야 함
 // 위 코드에서 private 키워드를 이용해서 hobby에 접근할수가 없다
 // 때문에 protected 키워드를 사용할 수 있다
 
@@ -101,7 +102,7 @@ abstract class User4 {
 }
 
 class Human extends User4 {
-    gethobby() {
+    gethobby()  {
         console.log(this.hobby)
     }
 }
@@ -114,4 +115,6 @@ const me3 = new Human ("상민", 28, "클라이밍");
 me3.hobby = "헬스"
 
 // protected로 인스턴스 바깥에서 값을 수정할 수 없다
-// 만약 필드가 외부로부터는 보호되지만, 다른 자식 클래스에서는 사용되기를 원한다면, private을 사용하면 안됨
+// 만약 필드가 외부로부터는 보호되지만, 다른 자식 클래스에서는 사용되기를 원한다면, private을 사용하면 안됨 
+
+me3.gethobby()
