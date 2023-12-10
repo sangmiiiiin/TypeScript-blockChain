@@ -118,3 +118,70 @@ me3.hobby = "헬스"
 // 만약 필드가 외부로부터는 보호되지만, 다른 자식 클래스에서는 사용되기를 원한다면, private을 사용하면 안됨 
 
 me3.gethobby()
+
+
+type Words = { 
+    [key:string] : string        // key에는 어떤 키워드가 들어가도 상관없다 
+}
+// object의 Type을 선언 해야할 때 쓸 수 있다  
+// object는 제한된 양의 property 혹은 key를 가지는 타입을 정의해 주는 방법 
+
+class Dict {
+    private words: Words 
+    constructor(){          // 생성자를 이용해서 수동으로 초기화
+        this.words = {}         
+    }
+    add(word:Word){             // 클래스를 타입처럼 사용했다 (이해안됨)
+        if(this.words[word.term] === undefined){
+            this.words[word.term] = word.def;
+        }
+    }
+    def(term:string){
+        return this.words[term]
+    }
+    static hello() {            // 스테틱 정확허게 이해 못하겠습니다
+         return "hello"
+    }
+} 
+
+// constructor(생성자)를 이용하지 않았다
+// constructor를 수동으로 초기화했다(?)
+
+class Word {            // Word는 클래스이고 위쪽에서 타입처럼 사용됐다
+    constructor(
+        public readonly term: string,           // readonly는 읽기 전용이다
+        public readonly def: string,
+    ) {}
+}
+
+const kimchi = new Word("kimchi", "한국의 음식")
+
+const dict = new Dict()
+
+dict.add(kimchi);
+dict.def("kimchi")
+
+kimchi.term = 'xxx' // 읽기전용으로 수정을 막을 수 있다 
+Dict.hello()
+
+
+type Player8<E> = {
+    nickname : string,
+    age:E
+}
+
+const sangminPlayer : Player8<number> = {
+    nickname: "sangmirrring",
+    age: 30
+}
+
+type Food = string;
+
+const kimchi2 : Food = "delicious"
+type Health = number
+type Friends = Array<string>
+
+
+
+
+
